@@ -124,3 +124,34 @@ typeAbility(M,A):-
   ability(A, AT),
   monster(M, MT),
   AT == MT.
+
+
+super(X):-
+  X = 'super'.
+
+ordinary(X):-
+  X = 'ordinary'.
+
+weak(X):-
+  X = 'weak'.
+
+comparison(X, Y):-
+  super(X),
+  ordinary(Y).
+
+comparison(X, Y):-
+  super(X),
+  weak(Y).
+
+comparison(X, Y):-
+  ordinary(X),
+  weak(Y).
+
+
+/* DEFINING ABILITY EFFECTIVENESS COMPARISON RULE */
+moreEffectiveAbility(A1,A2,T):-
+  ability(A1, A1T),
+  ability(A2, A2T),
+  typeEffectiveness(A1T, T, E1),
+  typeEffectiveness(A2T, T, E2),
+  comparison(E1, E2).
