@@ -1,0 +1,23 @@
+CALLUM TAYLOR
+F29AI ARTIFICIAL INTELLIGENCE AND INTELLIGENT AGENTS
+COURSE WORK 1
+QUERIES FOR TESTING
+
+monster(charmander,fire) -- true
+monster(pikachu,grass) -- false
+ability(vineWhip,water) -- false
+ability(surf,water) -- true
+monsterAbility(charmander,scratch) -- true
+monsterAbility(bulbasaur,tackle) -- true
+typeEffectiveness(normal,fire,ordinary) -- true
+typeEffectiveness(fire,grass,weak) -- false
+abilityEffectiveness(thunderbolt,squirtle,super) -- true
+abilityEffectiveness(thunderbolt,squirtle,weak) -- false
+superAbility(charmander,fireFang,bulbasaur) -- true
+superAbility(squirtle,surf,bulbasaur) -- false
+typeAbility(squirtle, surf) -- true
+typeAbility(pikachu, grassknot) -- false
+moreEffectiveAbility(surf,grassKnot,fire) -- true
+moreEffectiveAbility(fireFang,waterPulse,fire) -- false
+counterAbility(bulbasaur, solarBeam, squirtle, surf) -- false
+counterAbility(squirtle, surf, bulbasaur, solarBeam) -- true
