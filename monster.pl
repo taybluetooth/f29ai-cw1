@@ -1,3 +1,7 @@
+/* CALLUM TAYLOR */
+/* F29AI ARTIFICIAL INTELLIGENCE AND INTELLIGENT AGENTS */
+/* COURSE WORK 1 */
+
 /* DECLARING TYPE FACTS */
 type(fire).
 type(grass).
@@ -107,55 +111,65 @@ typeEffectiveness(electric,normal,ordinary).
 
 /* DEFINING ABILITY EFFECTIVENESS RULE */
 abilityEffectiveness(A,M,E):-
-  ability(A, AT),
-  monster(M, MT),
-  typeEffectiveness(AT, MT, E).
+  ability(A,AT),
+  monster(M,MT),
+  typeEffectiveness(AT,MT,E).
 
 /* DEFINING ABILITY SUPER EFFECTIVENESS RULE */
 superAbility(M1,A,M2):-
-  monsterAbility(M1, A),
-  ability(A, AT),
-  monster(M2, M2T),
-  typeEffectiveness(AT, M2T, super).
+  monsterAbility(M1,A),
+  ability(A,AT),
+  monster(M2,MT2),
+  typeEffectiveness(AT,MT2,super).
 
 /* DEFINING TYPE ABILITY RULE */
 typeAbility(M,A):-
-  monsterAbility(M, A),
-  ability(A, AT),
-  monster(M, MT),
-  AT == MT.
+  monsterAbility(M,A),
+  ability(A,AT),
+  monster(M,MT),
+  AT==MT.
 
-/* DEFINE PREDICATE FOR SUPER EFFECTIVENESS */
+/* DEFINING PREDICATE FOR SUPER EFFECTIVENESS */
 super(X):-
-  X = 'super'.
+  X='super'.
 
-/* DEFINE PREDICATE FOR ORDINARY EFFECTIVENESS */
+/* DEFINING PREDICATE FOR ORDINARY EFFECTIVENESS */
 ordinary(X):-
-  X = 'ordinary'.
+  X='ordinary'.
 
-/* DEFINE PREDICATE FOR WEAK EFFECTIVENESS */
+/* DEFINING PREDICATE FOR WEAK EFFECTIVENESS */
 weak(X):-
-  X = 'weak'.
+  X='weak'.
 
-/* DEFINE COMPARISON RULE STATING SUPER > ORDINARY */
-comparison(X, Y):-
+/* DEFINING COMPARISON RULE STATING SUPER > ORDINARY */
+comparison(X,Y):-
   super(X),
   ordinary(Y).
 
-/* DEFINE COMPARISON RULE STATING SUPER > WEAK */
-comparison(X, Y):-
+/* DEFINING COMPARISON RULE STATING SUPER > WEAK */
+comparison(X,Y):-
   super(X),
   weak(Y).
 
-/* DEFINE COMPARISON RULE STATING ORDINARY > WEAK */
-comparison(X, Y):-
+/* DEFINING COMPARISON RULE STATING ORDINARY > WEAK */
+comparison(X,Y):-
   ordinary(X),
   weak(Y).
 
 /* DEFINING ABILITY EFFECTIVENESS COMPARISON RULE */
 moreEffectiveAbility(A1,A2,T):-
-  ability(A1, A1T),
-  ability(A2, A2T),
-  typeEffectiveness(A1T, T, E1),
-  typeEffectiveness(A2T, T, E2),
-  comparison(E1, E2).
+  ability(A1,AT1),
+  ability(A2,AT2),
+  typeEffectiveness(AT1,T,E1),
+  typeEffectiveness(AT2,T,E2),
+  comparison(E1,E2).
+
+/* DEFINING COUNTER ABILITY EFFECTIVENESS COMPARISON RULE */
+counterAbility(M1,A1,M2,A2):-
+  monster(M1,MT1),
+  monster(M2,MT2),
+  ability(A1,AT1),
+  ability(A2,AT2),
+  typeEffectiveness(AT1,MT2,E1),
+  typeEffectiveness(AT2,MT1,E2),
+  comparison(E2,E1).
