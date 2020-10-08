@@ -125,28 +125,32 @@ typeAbility(M,A):-
   monster(M, MT),
   AT == MT.
 
-
+/* DEFINE PREDICATE FOR SUPER EFFECTIVENESS */
 super(X):-
   X = 'super'.
 
+/* DEFINE PREDICATE FOR ORDINARY EFFECTIVENESS */
 ordinary(X):-
   X = 'ordinary'.
 
+/* DEFINE PREDICATE FOR WEAK EFFECTIVENESS */
 weak(X):-
   X = 'weak'.
 
+/* DEFINE COMPARISON RULE STATING SUPER > ORDINARY */
 comparison(X, Y):-
   super(X),
   ordinary(Y).
 
+/* DEFINE COMPARISON RULE STATING SUPER > WEAK */
 comparison(X, Y):-
   super(X),
   weak(Y).
 
+/* DEFINE COMPARISON RULE STATING ORDINARY > WEAK */
 comparison(X, Y):-
   ordinary(X),
   weak(Y).
-
 
 /* DEFINING ABILITY EFFECTIVENESS COMPARISON RULE */
 moreEffectiveAbility(A1,A2,T):-
