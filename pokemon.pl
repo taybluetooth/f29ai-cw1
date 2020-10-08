@@ -111,9 +111,16 @@ abilityEffectiveness(A,M,E):-
   monster(M, MT),
   typeEffectiveness(AT, MT, E).
 
-  /* DEFINING ABILITY SUPER EFFECTIVENESS RULE */
+/* DEFINING ABILITY SUPER EFFECTIVENESS RULE */
 superAbility(M1,A,M2):-
   monsterAbility(M1, A),
   ability(A, AT),
   monster(M2, M2T),
   typeEffectiveness(AT, M2T, super).
+
+/* DEFINING TYPE ABILITY RULE */
+typeAbility(M,A):-
+  monsterAbility(M, A),
+  ability(A, AT),
+  monster(M, MT),
+  AT == MT.
