@@ -69,3 +69,38 @@ monsterAbility(eevee,rainDance).
 monsterAbility(eevee,sunnyDay).
 monsterAbility(eevee,bite).
 monsterAbility(eevee,lastResort).
+
+/* DECLARING NORMAL ABILITY EFFECTIVENESS */
+typeEffectiveness(normal,fire,ordinary)
+typeEffectiveness(normal,water,ordinary)
+typeEffectiveness(normal,grass,ordinary)
+typeEffectiveness(normal,electric,ordinary)
+typeEffectiveness(normal,normal,ordinary)
+
+/* DECLARING FIRE ABILITY EFFECTIVENESS */
+typeEffectiveness(fire,fire,weak)
+typeEffectiveness(fire,water,weak)
+typeEffectiveness(fire,grass,super)
+typeEffectiveness(fire,electric,ordinary)
+typeEffectiveness(fire,normal,ordinary)
+
+/* DECLARING WATER ABILITY EFFECTIVENESS */
+typeEffectiveness(water,fire,super)
+typeEffectiveness(water,water,weak)
+typeEffectiveness(water,grass,weak)
+typeEffectiveness(water,electric,ordinary)
+typeEffectiveness(water,normal,ordinary)
+
+/* DECLARING GRASS ABILITY EFFECTIVENESS */
+typeEffectiveness(grass,fire,weak)
+typeEffectiveness(grass,water,super)
+typeEffectiveness(grass,grass,weak)
+typeEffectiveness(grass,electric,ordinary)
+typeEffectiveness(grass,normal,ordinary)
+
+/* DECLARING ELECTRIC ABILITY EFFECTIVENESS */
+typeEffectiveness(electric,fire,ordinary)
+typeEffectiveness(electric,water,super)
+typeEffectiveness(electric,grass,weak)
+typeEffectiveness(electric,electric,weak)
+typeEffectiveness(electric,normal,ordinary)
